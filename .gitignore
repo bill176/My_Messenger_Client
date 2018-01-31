@@ -19,10 +19,6 @@ out/
 *.tar.gz
 *.rar
 
-# IDE-specific file
-.iml
-.idea/
-
 # OS-specific file
 .DS_Store
 
