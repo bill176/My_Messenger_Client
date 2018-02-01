@@ -54,24 +54,23 @@ public class BinaryTreeMap {
 
         //if key of the node to be inserted comes before root node...
         if(result < 0){
-            if(rootNode.getPrev() != null)
+            if(rootNode.getPrev() != null){
                 insert(nodeToBeInserted, rootNode.getPrev());
-            else
+            }else{
                 rootNode.setPrev(nodeToBeInserted);
+			}
         }
 
         //if key of the node to be inserted comes after root node...
         else if(result > 0){
-            if(rootNode.getNext() != null)
+            if(rootNode.getNext() != null){
                 insert(nodeToBeInserted, rootNode.getNext());
-            else
+            }else{
                 rootNode.setNext(nodeToBeInserted);
+			}
         }
 
-        //if they are the same... then do nothing
-        else{
-            //do nothing
-        }
+        
     }
 
    public static BinaryTreeMap search(String key, BinaryTreeMap rootNode){
@@ -79,24 +78,27 @@ public class BinaryTreeMap {
         int result = key.compareToIgnoreCase(rootNode.getKey());
 
         //if found...
-        if(result == 0)
+        if(result == 0){
             return rootNode;
+		}
 
         //if the key comes before that of rootNode...
         else if(result < 0){
-            if(rootNode.getPrev() == null)
+            if(rootNode.getPrev() == null){
                 return null;
-            else
+            }else{
                 return search(key, rootNode.getPrev());
+			}
         }
 
         //if the key comes after that of rootNode...
         else {
-            if (rootNode.getNext() == null)
+            if (rootNode.getNext() == null){
                 return null;
-            else
+            }else{
                 return search(key, rootNode.getNext());
-        }
+        	}
+		}
     }
 
 }
