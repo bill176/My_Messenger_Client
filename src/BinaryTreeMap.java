@@ -50,20 +50,21 @@ public class BinaryTreeMap {
 
     public static void insert(BinaryTreeMap nodeToBeInserted, BinaryTreeMap rootNode){
 
+        // result stores the result of the comparison between key and rootNode
         int result = nodeToBeInserted.getKey().compareToIgnoreCase(rootNode.getKey());
 
-        //if key of the node to be inserted comes before root node...
-        if(result < 0){
-            if(rootNode.getPrev() != null){
+        // if key of the node to be inserted comes before root node...
+        if (result < 0){
+            if (rootNode.getPrev() != null){
                 insert(nodeToBeInserted, rootNode.getPrev());
             }else{
                 rootNode.setPrev(nodeToBeInserted);
 			}
         }
 
-        //if key of the node to be inserted comes after root node...
-        else if(result > 0){
-            if(rootNode.getNext() != null){
+        // if key of the node to be inserted comes after root node...
+        else if (result > 0){
+            if (rootNode.getNext() != null){
                 insert(nodeToBeInserted, rootNode.getNext());
             }else{
                 rootNode.setNext(nodeToBeInserted);
@@ -75,16 +76,17 @@ public class BinaryTreeMap {
 
    public static BinaryTreeMap search(String key, BinaryTreeMap rootNode){
 
+        // result stores the result of the comparison between key and rootNode
         int result = key.compareToIgnoreCase(rootNode.getKey());
 
         //if found...
-        if(result == 0){
+        if (result == 0){
             return rootNode;
 		}
 
         //if the key comes before that of rootNode...
-        else if(result < 0){
-            if(rootNode.getPrev() == null){
+        else if (result < 0){
+            if (rootNode.getPrev() == null){
                 return null;
             }else{
                 return search(key, rootNode.getPrev());
