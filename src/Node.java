@@ -2,21 +2,21 @@ public class Node {
 
     private String key;
     private String val;
-    private Node prev;
-    private Node next;
+    private int prev;
+    private int next;
 
     public Node(String key, String val){
         this.key = key;
         this.val = val;
-        prev = null;
-        next = null;
+        prev = BinaryTreeMap.NULL_INDEX;
+        next = BinaryTreeMap.NULL_INDEX;
     }
 
-    public Node getNext() {
+    public int getNext() {
         return next;
     }
 
-    public Node getPrev() {
+    public int getPrev() {
         return prev;
     }
 
@@ -36,11 +36,11 @@ public class Node {
         this.val = val;
     }
 
-    public void setPrev(Node prev) {
+    public void setPrev(int prev) {
         this.prev = prev;
     }
 
-    public void setNext(Node next) {
+    public void setNext(int next) {
         this.next = next;
     }
 }
