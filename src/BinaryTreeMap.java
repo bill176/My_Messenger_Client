@@ -4,51 +4,74 @@
 
 public class BinaryTreeMap {
 
-    private String key;
-    private String val;
-    private BinaryTreeMap next;
-    private BinaryTreeMap prev;
+    public final static int NULL_INDEX = -1;
 
-    public BinaryTreeMap(String key, String val){
-        this.key = key;
-        this.val = val;
-        next = null;
-        prev = null;
+    private final static int LEN = 100;
+
+    private Node [] arr;
+    private int first_empty_index;
+    private int end_index;
+
+    public BinaryTreeMap(){
+        arr = new Node[LEN];
+        first_empty_index = 0;
+        end_index = 0;
     }
 
-    public String getKey(){
-        return key;
+    // constructor: copy the content of the object 'entry' and place it at index 0 of 'arr'
+    public BinaryTreeMap(Node entry){
+
+        arr = new Node[LEN];
+
+        arr[0] = entry;
+        first_empty_index = 1;
+        end_index = 1;
     }
 
-    public String getVal(){
-        return val;
+    // find_next_empty_index(current_index) returns the first index after 'current_index' that is empty
+    private int find_next_empty_index(int current_index){
+        for (int i = current_index + 1; i < LEN; ++i){
+            if (arr[i] == null){
+                return i;
+            }
+        }
+
+        return NULL_INDEX;
     }
 
-    public BinaryTreeMap getNext(){
-        return next;
+    // expand_array() turns 'arr' into a new array with double the size of the previous one
+    private void expand_array(){
+        Node [] new_arr = new Node[arr.length * 2];
+
+        for (int i = 0; i < arr.length; ++i){
+            new_arr[i] = arr[i];
+        }
+
+        arr = new_arr;
+    }
+/*
+    public void insert(Node entry, int pos){
+        if (end_index == 0){
+            arr[0] = entry;
+            ++first_empty_index;
+            ++end_index;
+        }else if (entry.getKey() < arr[0]){
+
+        }
     }
 
-    public BinaryTreeMap getPrev(){
-        return prev;
+    private int arr_insert(){
+
     }
 
-    public void setKey(String key){
-        this.key = key;
-    }
 
-    public void setVal(String val){
-        this.val = val;
-    }
 
-    public void setNext(BinaryTreeMap next){
-        this.next = next;
-    }
+    // requires: nodeToBeInserted is not null
+    public static BinaryTreeMap insert(BinaryTreeMap nodeToBeInserted, BinaryTreeMap rootNode){
 
-    public void setPrev(BinaryTreeMap prev){
-        this.prev = prev;
-    }
-
-    public static void insert(BinaryTreeMap nodeToBeInserted, BinaryTreeMap rootNode){
+        if (rootNode == null){
+            return nodeToBeInserted;
+        }
 
         // result stores the result of the comparison between key and rootNode
         int result = nodeToBeInserted.getKey().compareToIgnoreCase(rootNode.getKey());
@@ -102,5 +125,6 @@ public class BinaryTreeMap {
         	}
 		}
     }
+    */
 
 }
