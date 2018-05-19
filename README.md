@@ -1,5 +1,3 @@
 # My_Messenger_Client
-Client side of a chatting program that allows users to communicate via text, similar to Messenger
 
-
-Note: This program might not work properly at the moment since new features are being added. This comment will be removed once major updates are complete.
+This program has been merged to My_Messenger repository. See https://github.com/bill176/My_Messenger
